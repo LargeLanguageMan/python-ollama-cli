@@ -18,4 +18,3 @@ if __name__ == "__main__":
     prompt = input("Enter your prompt: ")
     result = get_response(model, prompt)
     print("Waiting for model response...")
-
