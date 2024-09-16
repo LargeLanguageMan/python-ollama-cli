@@ -9,18 +9,13 @@ def get_response(model, prompt):
         "prompt": prompt
     }
     response = requests.post(url, headers=headers, data=json.dumps(data), stream=True)
-    all_chunks = []
     for chunk in response.iter_lines():
-            if chunk:
-                    decoded_data = json.loads(chunk.decode('utf-8'))
-                    all_chunks.append(decoded_data)
-    return all_chunks
-
+        decoded_chunk = chunk.decode('utf-8')  # Decode the byte string
+        json_chunk = json.loads(decoded_chunk)  # Parse the JSON data
+        print(json_chunk["response"], end="", flush=True) 
 if __name__ == "__main__":
     model = input("Enter model name (e.g., llama3.1): ")
     prompt = input("Enter your prompt: ")
     result = get_response(model, prompt)
-    box = ""
-    for response in result:
-        box = box + response["response"]
-    print(box)
+    print("Waiting for model response...")
+
