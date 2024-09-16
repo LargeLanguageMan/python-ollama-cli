@@ -253,6 +253,4 @@ Then we can print:
 print(result['response'])
 ```
 
-In my example programs, I have set up an input to choose the model and type your response into the CLI. Then, the script will generate a response from the LLM you chose. See the picture below:
-
-![This is my example with no streaming](/llm-local-cli.png)
+In my example programs, I have set up an input to choose the model and type your response into the CLI. Then, the script will generate a response from the LLM you chose.
